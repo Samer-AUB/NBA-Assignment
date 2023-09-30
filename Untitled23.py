@@ -192,7 +192,7 @@ import pandas as pd
 import plotly.express as px
 
 # Load your DataFrame
-data_file_path = r"C:\Users\sr48\OneDrive - American University of Beirut\Desktop\Games.csv"
+data_file_path = r"Games.csv"
 df = pd.read_csv(data_file_path)
 
 # Title for your Streamlit app
