@@ -187,6 +187,41 @@ for metric in metrics:
 
 # In[ ]:
 
+import streamlit as st
+import pandas as pd
+import plotly.express as px
 
+# Load your DataFrame
+data_file_path = r"C:\Users\sr48\OneDrive - American University of Beirut\Desktop\Games.csv"
+df = pd.read_csv(data_file_path)
 
+# Title for your Streamlit app
+st.title('Annual Average Metrics for Selected Teams')
 
+# Calculate the annual average for the specified metrics
+annual_avg_df = df.groupby(['SEASON', 'Home Team'])[['Free Throw Percentage_home',
+                                                     '3 Point Field Goal Percentage_home',
+                                                     "Percent of Team's Assists_home",
+                                                     'Rebounds_home']].mean().reset_index()
+
+# Select the specific teams for box plots (Warriors, Lakers, and Spurs)
+selected_teams = ['Warriors', 'Lakers', 'Spurs']
+
+# Filter the DataFrame for the selected teams
+filtered_df = annual_avg_df[annual_avg_df['Home Team'].isin(selected_teams)]
+
+# Create separate box plots for each metric
+metrics = ['Free Throw Percentage_home',
+           '3 Point Field Goal Percentage_home',
+           "Percent of Team's Assists_home",
+           'Rebounds_home']
+
+for metric in metrics:
+    fig = px.box(
+        filtered_df,
+        x='Home Team',
+        y=metric,
+        title=f'Box Plot for {metric} by Selected Teams',
+        labels={'Home Team': 'Team'},
+    )
+    st.plotly_chart(fig)
