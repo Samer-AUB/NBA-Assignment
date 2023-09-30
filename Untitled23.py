@@ -13,7 +13,7 @@ import plotly.express as px
 import pandas as pd
 
 # Define the file path
-file_path = r'C:\Users\sr48\OneDrive - American University of Beirut\Desktop\Games.csv'
+file_path = r'Games.csv'
 
 # Use Pandas to read the CSV file into a DataFrame
 df = pd.read_csv(file_path)
@@ -86,7 +86,7 @@ import pandas as pd
 import plotly.express as px
 
 # Load your DataFrame
-data_file_path = r"C:\Users\sr48\OneDrive - American University of Beirut\Desktop\Games.csv"
+data_file_path = r"Games.csv"
 df = pd.read_csv(data_file_path)
 
 # Title for your Streamlit app
@@ -148,7 +148,7 @@ import pandas as pd
 import plotly.express as px
 
 # Load your DataFrame
-data_file_path = r"C:\Users\sr48\OneDrive - American University of Beirut\Desktop\Games.csv"
+data_file_path = r"Games.csv"
 df = pd.read_csv(data_file_path)
 
 # Title for your Streamlit app
